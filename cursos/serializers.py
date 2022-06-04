@@ -1,4 +1,3 @@
-from asyncore import read
 from rest_framework import serializers
 from .models import Avaliacao, Curso
 
@@ -20,6 +19,11 @@ class AvaliacaoSerializers(serializers.ModelSerializer):
             'criacao',
             'ativo',
         )
+        
+    def validate_avaliacao(self, valor): # tem que ter o underline para validar, ex validate_email
+        if valor in range(1,6):
+            return valor
+        raise serializers.ValidationError('A avaliacao PRECISA ser de 1 a 5!!!')
 
 
 class CursoSerializers(serializers.ModelSerializer):

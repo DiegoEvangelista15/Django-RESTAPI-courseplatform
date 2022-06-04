@@ -144,7 +144,15 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2  # para paginacao voce precisa ter apenas uma forma de paginacao - dois elementos por pagina
+    'PAGE_SIZE': 10,  # para paginacao voce precisa ter apenas uma forma de paginacao - dois elementos por pagina
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/minute', # poderia ser second, day, month, year e assim por diante
+        'user': '10/minute'
+    }
 }
 
 
