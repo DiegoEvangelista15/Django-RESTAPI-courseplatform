@@ -1,0 +1,13 @@
+__pycache__
+
+*.*~
+
+*.pyc
+
+.idea
+
+template/
+
+htmlcov/*
+
+venv
