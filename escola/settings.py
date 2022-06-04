@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
+
+Token: b095e3ee3594b80b1afca1dc0aa0328ff5cb973a
+
 """
 
 from pathlib import Path
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
 
     'django_filters',
     'rest_framework',
+    'rest_framework.authtoken', # app de auth via token
 
     'cursos',  # organizar desta maneira que fica bem melhor separado
 ]
@@ -130,7 +134,8 @@ MEDIA_URL = 'media/'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         # nosso acesso da api fica sessao mesmo, mais pra frente a gente troca por token
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',  para remover a auth via login, abaixo add somente via token
+        'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         # Essa de autorizacao, o que o clientes podem fazer, se ele nao logar ele so pode ler
@@ -139,6 +144,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 2  # para paginacao voce precisa ter apenas uma forma de paginacao - dois elementos por pagina
 }
+
+
 
 
 # Default primary key field type
