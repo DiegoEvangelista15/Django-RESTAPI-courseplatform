@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 
-Token: b095e3ee3594b80b1afca1dc0aa0328ff5cb973a
+Token Diego: b095e3ee3594b80b1afca1dc0aa0328ff5cb973a
+
+Token Juliana : 57c1f451cedc84dea1998bcf89c4a8f024ab896f
 
 """
 
